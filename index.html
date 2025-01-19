@@ -45,9 +45,11 @@
   </nav>
   <!-- Content -->
   <div class="container mt-5">
-    <h1>Hello, world!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quo.</p>
+    <h1>Active Events</h1>
+    <div id="recent-calls"></div>
   </div>
+  <div class="container mt-5">
+    <div id="date-time"></div>
   <!-- Footer -->
   <footer class="bg-light text-center text-lg-start mt-5">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -73,7 +75,7 @@
       <span class="text-muted"> | </span>
       <a class="text-dark" href="/submit-content/">Submit Content</a>
       <br />
-      <span id="disclaimer" class="text-muted">Disclaimer: Please note that CNY911.com is not affiliated with any public service, government, or emergency service agency. The information presented on this website is for informational purposes only and should not be relied upon as a substitute for emergency services. In case of an emergency, please call 911 or your local emergency services immediately </span>
+      <span id="disclaimer"><strong>Disclaimer:</strong> Please note that CNY911.com is not affiliated with any public service, government, or emergency service agency. The information presented on this website is for informational purposes only and should not be relied upon as a substitute for emergency services. In case of an emergency, please call 911 or your local emergency services immediately </span>
     </div>
   </footer>
   <!-- Bootstrap JS -->
@@ -82,6 +84,10 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <!-- data table -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+  <!-- custom js -->
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/data.js"></script>
 </body>
 
 </html>
