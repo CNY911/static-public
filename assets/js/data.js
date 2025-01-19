@@ -1,5 +1,14 @@
 $(document).ready(function () {
-    console.log("CN911: Document ready!");
+    console.log("CN911: Site Loaded!");
+    // Fetch the recent calls
+    getRecentCalls();
+
+    // Fetch the recent calls every 60 seconds
+    setInterval(getRecentCalls, 60000);
+});
+
+function getRecentCalls() {
+    console.log("CN911: Fetching recent calls...");
     // Fetch the recent calls from the API
     $.ajax({
         url: "https://api.cny911.com/get-recent-calls",
@@ -63,4 +72,4 @@ $(document).ready(function () {
             $("#recent-calls").html("Unable to load recent calls at this time.");
         }
     });
-});
+}
