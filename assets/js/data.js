@@ -1,9 +1,12 @@
 $(document).ready(function() {
+    console.log("CN911: Document ready!");
+    // Fetch the recent calls from the API
     $.ajax({
       url: "https://api.cny911.com/get-recent-calls",
       method: "GET",
       dataType: "json",
       success: function(data) {
+        console.log("Recent calls data:", data);
         // Create a table
         var $table = $("<table></table>")
           .css({
@@ -52,9 +55,10 @@ $(document).ready(function() {
 
         // Clear the #recent-calls div and place our table inside it
         $("#recent-calls").empty().append($table);
+        console.log("CN911: Recent calls table updated!");
       },
       error: function(xhr, status, error) {
-        console.error("Error fetching data:", error);
+        console.error("CNY911: Error fetching data:", error);
         $("#recent-calls").html("Unable to load recent calls at this time.");
       }
     });

@@ -9,3 +9,6 @@ function displayDateTime() {
 
 // Call the function immediately
 displayDateTime();
+
+// Call the function every second
+setInterval(displayDateTime, 1000);
