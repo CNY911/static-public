@@ -12,8 +12,15 @@ function displayDateTime() {
   $("#date-time").text(dateTime);
 }
 
-// Call the function immediately
+$(document).ready(function () {
+  $(".navbar-toggler").click(function () {
+    $(".navbar-collapse").slideToggle();
+  });
+  
+  // Call the function immediately
 displayDateTime();
 
 // Call the function every second
 setInterval(displayDateTime, 1000);
+});
+
