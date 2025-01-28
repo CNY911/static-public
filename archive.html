@@ -98,14 +98,16 @@
 
     function getData() {
       archiveCalls();
-      // wait for 5 seconds before enabling the data table
-      setTimeout(enableDataTable, 5000);
-      console.log("CN911: Archive Calls Loaded!");
     }
 
     function enableDataTable() {
       $('#data-table').DataTable();
     }
+
+    // wait for the #data-table to be changed before enabling the data table
+    $('#data').on('change', function () {
+      enableDataTable();
+    });
   </script>
 </body>
 
