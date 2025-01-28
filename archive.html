@@ -47,7 +47,7 @@
   <!-- Content -->
   <div class="container mt-5">
     <h1>Archived Events</h1>
-    <div id="data"></div>
+    <div id="data"><table id="data-table"></table></div>
   </div>
   <div class="container mt-5">
     <div id="date-time"></div>
@@ -97,7 +97,7 @@
     });
 
     function getData() {
-      new DataTable('#data', {
+      new DataTable('#data-table', {
         "ajax": {
           "url": "https://api.cny911.com/archive",
           "type": "GET"
