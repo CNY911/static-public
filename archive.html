@@ -93,11 +93,16 @@
     $(document).ready(function () {
       console.log("CN911: Site Loaded!");
       // Fetch the recent calls
-      archiveCalls();
+      getData();
 
       // Fetch the recent calls every 600 seconds
-      archiveCalls(getRecentCalls, 600000);
+      setInterval(getData, 600000);
     });
+
+    function getData() {
+      archiveCalls();
+      new DataTable('#data-table');
+    }
   </script>
 </body>
 
