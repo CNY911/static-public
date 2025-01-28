@@ -8,7 +8,7 @@ function getRecentCalls() {
         success: function (data) {
             console.log("Recent calls data:", data);
             // Create a table
-            var $table = $("<table></table>")
+            var $table = $("<table id='data-table'></table>")
                 .css({
                     "border-collapse": "collapse",
                     "width": "100%"
@@ -56,6 +56,7 @@ function getRecentCalls() {
 
             // Clear the #recent-calls div and place our table inside it
             $("#recent-calls").empty().append($table);
+            new DataTable("#data-table");
             console.log("CN911: Recent calls table updated!");
         },
         error: function (xhr, status, error) {
@@ -75,7 +76,7 @@ function archiveCalls() {
         success: function (data) {
             console.log("Archive calls data:", data);
             // Create a table
-            var $table = $("<table></table>")
+            var $table = $("<table id='data-table'></table>")
                 .css({
                     "border-collapse": "collapse",
                     "width": "100%"
@@ -123,6 +124,7 @@ function archiveCalls() {
 
             // Clear the #recent-calls div and place our table inside it
             $("#recent-calls").empty().append($table);
+            new DataTable("#data-table");
             console.log("CN911: Archive calls table updated!");
         },
         error: function (xhr, status, error) {
