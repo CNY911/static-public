@@ -73,7 +73,7 @@ function archiveCalls() {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log("Archive calls data:", data);
+            console.log("Archive calls data:", data.data);
             // Create a table
             var $table = $("<table id='data-table'></table>")
                 .css({
