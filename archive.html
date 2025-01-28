@@ -93,8 +93,19 @@
     $(document).ready(function () {
       console.log("CN911: Site Loaded!");
       // wait for the #data to be changed before enabling the data table
-      $('#data').on('change', function () {
-        enableDataTable();
+      // Select the target node.
+      var target = document.querySelector('#data');
+
+      // Create an observer instance.
+      var observer = new MutationObserver(function(mutations) {
+          console.log(target.innerText);   
+      });
+
+      // Pass in the target node, as well as the observer options.
+      observer.observe(target, {
+          attributes:    true,
+          childList:     true,
+          characterData: true
       });
       // Fetch the recent calls
       getData();
