@@ -94,15 +94,15 @@
       console.log("CN911: Site Loaded!");
       // Fetch the recent calls
       getData();
-
-      // Fetch the recent calls every 600 seconds
-      setInterval(getData, 600000);
     });
 
     function getData() {
-      archiveCalls();
-      new DataTable('#data-table');
-      console.log("CN911: Archive Calls Loaded!");
+      new DataTable('#myTable', {
+        "ajax": {
+          "url": "https://api.cny911.com/archive",
+          "type": "GET"
+        }
+      } );
     }
   </script>
 </body>
