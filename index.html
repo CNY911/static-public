@@ -94,16 +94,20 @@
       console.log("CN911: Site Loaded!");
       // Fetch the recent calls
       getData();
-
-      // Fetch the recent calls every 600 seconds
-      setInterval(getData, 600000);
     });
 
     function getData() {
       getRecentCalls();
-      new DataTable('#data-table');
-      console.log("CN911: Data Fetched!");
     }
+
+    function enableDataTable() {
+      $('#data-table').DataTable();
+    }
+
+    // wait for the #data-table to be changed before enabling the data table
+    $('#data').on('change', function () {
+      enableDataTable();
+    });
   </script>
 </body>
 
