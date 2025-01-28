@@ -97,7 +97,7 @@ function archiveCalls() {
             var $tbody = $("<tbody></tbody>");
 
             // Populate table rows from the API data
-            $.each(data, function (index, call) {
+            $.each(data.data, function (index, call) {
                 var $tr = $("<tr></tr>");
                 $tr.append(
                     `<td style="border:1px solid #ccc; padding:8px;">${call.id || ""}</td>`
