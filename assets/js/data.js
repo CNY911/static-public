@@ -54,14 +54,13 @@ function getRecentCalls() {
 
             $table.append($thead).append($tbody);
 
-            // Clear the #recent-calls div and place our table inside it
-            $("#recent-calls").empty().append($table);
-            new DataTable("#data-table");
+            // Clear the #data div and place our table inside it
+            $("#data").empty().append($table);
             console.log("CN911: Recent calls table updated!");
         },
         error: function (xhr, status, error) {
             console.error("CNY911: Error fetching data:", error);
-            $("#recent-calls").html("Unable to load recent calls at this time.");
+            $("#data").html("Unable to load recent calls at this time.");
         }
     });
 }
@@ -122,14 +121,13 @@ function archiveCalls() {
 
             $table.append($thead).append($tbody);
 
-            // Clear the #recent-calls div and place our table inside it
-            $("#recent-calls").empty().append($table);
-            new DataTable("#data-table");
+            // Clear the #data div and place our table inside it
+            $("#data").empty().append($table);
             console.log("CN911: Archive calls table updated!");
         },
         error: function (xhr, status, error) {
             console.error("CNY911: Error fetching data:", error);
-            $("#recent-calls").html("Unable to load archive calls at this time.");
+            $("#data").html("Unable to load archive calls at this time.");
         }
     });
 }
