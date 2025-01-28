@@ -90,7 +90,7 @@
   <script src="/assets/js/script.js"></script>
   <script src="/assets/js/data.js"></script>
   <script type="text/javascript">
-    $(document).ready(function () {
+  $(document).ready(function () {
       console.log("CN911: Site Loaded!");
       // wait for the #data to be changed before enabling the data table
       // Select the target node.
@@ -98,7 +98,10 @@
 
       // Create an observer instance.
       var observer = new MutationObserver(function(mutations) {
-          console.log(target.innerText);   
+          // if the #data element contains a table, enable the data table
+          if (target.querySelector('table')) {
+              enableDataTable();
+          } 
       });
 
       // Pass in the target node, as well as the observer options.
