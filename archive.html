@@ -92,6 +92,10 @@
   <script type="text/javascript">
     $(document).ready(function () {
       console.log("CN911: Site Loaded!");
+      // wait for the #data to be changed before enabling the data table
+      $('#data').on('change', function () {
+        enableDataTable();
+      });
       // Fetch the recent calls
       getData();
     });
@@ -103,11 +107,6 @@
     function enableDataTable() {
       $('#data-table').DataTable();
     }
-
-    // wait for the #data-table to be changed before enabling the data table
-    $('#data').on('change', function () {
-      enableDataTable();
-    });
   </script>
 </body>
 
