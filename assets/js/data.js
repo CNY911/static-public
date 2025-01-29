@@ -69,7 +69,7 @@ function archiveCalls() {
     console.log("CN911: Fetching recent calls...");
     // Fetch the recent calls from the API
     $.ajax({
-        url: "https://api.cny911.com/archive?limit=100&offset=0",
+        url: "https://api.cny911.com/archive?limit=1000&offset=0",
         method: "GET",
         dataType: "json",
         success: function (data) {
