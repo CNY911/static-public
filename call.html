@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNY911 | Active Events</title>
+  <!-- Bootstrap CSS -->
+  <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            integrity="sha384-..."
+            crossorigin="anonymous"
+    >
+  <!-- custom css -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="/assets/imgaes/favicon-32x32.png" type="image/png">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="assets/imgaes/logo-105.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Active Events <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Map</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/archive">Archive</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Custom Alerts</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Content -->
+  <div class="container mt-5">
+    <h1>Active Events</h1>
+    <div id="data"></div>
+  </div>
+  <div class="container mt-5">
+    <div id="date-time"></div>
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start mt-5">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2019-2025
+      <a class="text-dark" href="/">CNY911.com</a>
+      <span class="text-muted"> All rights reserved.</span>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/privacy-policy/">Privacy Policy</a>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/terms-of-service/">Terms of Service</a>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/contact-us/">Contact Us</a>
+      <br />
+      <a class="text-dark" href="/cookie-policy/">Cookie Policy</a>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/cookie-settings/">Cookie Settings</a>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/about-us/">About Us</a>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/advertise/">Advertise</a>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/subscribe/">Subscribe</a>
+      <span class="text-muted"> | </span>
+      <a class="text-dark" href="/submit-content/">Submit Content</a>
+      <br />
+      <span id="disclaimer"><strong>Disclaimer:</strong> Please note that CNY911.com is not affiliated with any public service, government, or emergency service agency. The information presented on this website is for informational purposes only and should not be relied upon as a substitute for emergency services. In case of an emergency, please call 911 or your local emergency services immediately </span>
+    </div>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <!-- data table -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css">
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+  <!-- custom js -->
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/data.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        id = window.location.pathname.split("/").pop();
+      // get the call data from https://api.cny911.com/call/{id} where the ID is in the URL
+        $.getJSON("https://api.cny911.com/call/"+id, function(data) {
+            // create a table and append it to the data div
+            var table = $("<table>").addClass("table table-striped table-bordered");
+            var tbody = $("<tbody>");
+            table.append(tbody);
+            $("#data").append(table);
+            // add the data to the table
+            $.each(data, function(key, value) {
+            var tr = $("<tr>");
+            var th = $("<th>").text(key);
+            var td = $("<td>").text(value);
+            tr.append(th);
+            tr.append(td);
+            tbody.append(tr);
+            });
+        });
+  </script>
+</body>
+
+</html>
