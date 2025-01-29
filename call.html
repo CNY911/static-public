@@ -93,7 +93,7 @@
     $(document).ready(function() {
       // get the ID from the query string
       urlParams = new URLSearchParams(window.location.search);
-       myParam = urlParams.get('id');  
+       id = urlParams.get('id');  
       // get the call data from https://api.cny911.com/call/{id} where the ID is in the URL
         $.getJSON("https://api.cny911.com/call/"+id, function(data) {
             // create a table and append it to the data div
