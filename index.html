@@ -112,6 +112,9 @@
       });
       // Fetch the recent calls
       getData();
+
+      // refresh the data every 90 seconds
+      setInterval(getData, 90000);
     });
 
     function getData() {
