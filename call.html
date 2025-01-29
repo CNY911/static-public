@@ -102,7 +102,7 @@
             table.append(tbody);
             $("#data").append(table);
             // add the data to the table
-            $.each(data, function(key, value) {
+            $.each(data.data, function(key, value) {
             var tr = $("<tr>");
             var th = $("<th>").text(key);
             var td = $("<td>").text(value);
