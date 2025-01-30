@@ -123,12 +123,17 @@
 
     function enableDataTable() {
       console.log("CN911: Enabling Data Table");
-      new DataTable('#data-table', {
-          order: [[0, 'desc']],
-          destroy: true,
-          paging: false
-      });
+      new DataTable()
+      $('#data-table').DataTable(
+        {
+          "order": [[ 0, "desc" ]],
+          "paging":   false,
+          "destroy": true
+        }
+      );
     }
+
+    
   </script>
 </body>
 
