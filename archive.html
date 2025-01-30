@@ -123,7 +123,19 @@
 
     function enableDataTable() {
       console.log("CN911: Enabling Data Table");
-      $('#data-table').DataTable();
+      if ( $.fn.dataTable.isDataTable( '#data-table' ) ) {
+          table = $('#data-table').DataTable();
+      }
+      else {
+          table = $('#data-table').DataTable( {
+              order: [[ 0, "desc" ]],
+              lengthMenu: [ [25, 100, 500, -1], [25, 100, 500, "All"] ],
+              pageLength: 25,
+              paging: true,
+              searching: true,
+              scrollX: true
+          } );
+      }
     }
   </script>
 </body>
