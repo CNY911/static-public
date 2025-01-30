@@ -123,7 +123,11 @@
 
     function enableDataTable() {
       console.log("CN911: Enabling Data Table");
-      $('#data-table').DataTable();
+      $('#data-table').DataTable(
+        {
+          "order": [[ 0, "desc" ]]
+        }
+      );
     }
 
     
